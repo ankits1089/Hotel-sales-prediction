@@ -1,6 +1,8 @@
 from init_probe import *
 import pickle
 
+wd= '/Users/username/Documents/Hotel_sale_pred/'
+
 def txn_data_aggregator(data, list_hotel_id):
 
 	#### handling dates
@@ -40,7 +42,6 @@ def txn_data_aggregator(data, list_hotel_id):
 				df.loc[df['Dates']== dates,'rooms_booked'] = temp['num_rooms'].sum()
 		txn_df = txn_df.append(df,ignore_index=True)
 		counter+=1
-		# df.to_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/testing2/booking_agg_data.csv',mode = 'a', index=False, header = False)
 
 	return txn_df
 
@@ -152,5 +153,5 @@ def txn_demand_data_compiler(txn_data_agg, city_var_df, hotel_var_df, flag ='tra
 	else:
 		string = ''
 
-	result.to_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/model/final_data'+string+'.csv',index=False)
+	result.to_csv(wd+'model/final_data'+string+'.csv',index=False)
 

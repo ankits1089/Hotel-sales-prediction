@@ -42,7 +42,9 @@ def model_evaluation(y_true, y_pred):
 
 if __name__ == '__main__':
 
-	data = pd.read_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/model/final_data.csv',header=0)
+	wd= '/Users/username/Documents/Hotel_sale_pred/'
+
+	data = pd.read_csv(wd+'model/final_data.csv',header=0)
 
 	df = data
 	df = df.loc[:,'rooms_booked':list(data.columns)[-1:][0]]

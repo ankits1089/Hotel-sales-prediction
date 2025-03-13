@@ -1,11 +1,13 @@
 from dataset_creator_functions import *
 import pickle
 
-demand_data_training = pd.read_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/data_000.csv',header=None,
+wd= '/Users/username/Documents/Hotel_sale_pred/'
+
+demand_data_training = pd.read_csv(wd+'data_000.csv',header=None,
 		names=['bookingdate', 'hotelid', 'cityid', 'checkin', 'checkout', 'flavour', 'num_rooms', 'userid'])
 date_parsing_fn(demand_data_training)
 
-txn_data_training = pd.read_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/data_000 2.csv',header=None,
+txn_data_training = pd.read_csv(wd+'data_000 2.csv',header=None,
 	names=['bookingdate', 'hotelid', 'cityid', 'checkin', 'checkout', 'flavour', 'num_rooms', 'userid'])
 
 ######## booking data aggregation commands

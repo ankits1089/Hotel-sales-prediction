@@ -6,11 +6,13 @@ import pickle
 ####### Compiling validation files to create dataset 
 ##################################################
 
-demand_data_training = pd.read_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/validation_demand_data.csv',header=None,
+wd= '/Users/username/Documents/Hotel_sale_pred/'
+
+demand_data_training = pd.read_csv(wd+'validation_demand_data.csv',header=None,
 		names=['bookingdate', 'hotelid', 'cityid', 'checkin', 'checkout', 'flavour', 'num_rooms', 'userid'])
 date_parsing_fn(demand_data_training)
 
-txn_data_training = pd.read_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/validation_txn_data.csv',header=None,
+txn_data_training = pd.read_csv(wd+'validation_txn_data.csv',header=None,
 	names=['bookingdate', 'hotelid', 'cityid', 'checkin', 'checkout', 'flavour', 'num_rooms', 'userid'])
 
 ######## booking data aggregation commands
@@ -44,7 +46,7 @@ def dummy_creator(given_str, str_to_find):
 	else:
 		return 0
 
-data = pd.read_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/model/final_data_pred.csv',header=0)
+data = pd.read_csv(wd+'model/final_data_pred.csv',header=0)
 
 # with open('max_rooms_fr_hotel.pickle', 'rb') as handle:
 # 	max_rooms_fr_hotel = pickle.load(handle)
@@ -95,7 +97,7 @@ data = data[['Dates', 'hotelid', 'cityid', 'rooms_booked', 'rooms_predicted']]
 result = model_evaluation(data['rooms_booked'],data['rooms_predicted'])
 print('score: ',result[0])
 
-data.to_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/model/result.csv',index=False)
+data.to_csv(wd+'model/result.csv',index=False)
 
 
     

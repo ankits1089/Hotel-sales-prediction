@@ -3,6 +3,8 @@ import numpy as np
 import datetime
 from timeit import default_timer as timer
 
+wd= '/Users/username/Documents/Hotel_sale_pred/'
+
 ###### function to parse dates in the given data
 def date_parsing_fn (data):
 	data['bookingdate'] = data['bookingdate'].astype('datetime64[s]')
@@ -81,7 +83,7 @@ if __name__ == '__main__':
 
 	data_sample_hotel = data_txn[data_txn['hotelid']=='2f53dfc7ce22c4c3a97ad3631a698e1303f84b10']
 
-	data_sample_hotel.to_csv('/Users/ankitsrivastava/Documents/Sales prediction assignment/sample hotel/txn_one_hotel.csv',index=False)
+	data_sample_hotel.to_csv(wd+'sample hotel/txn_one_hotel.csv',index=False)
 
 
 	#######################
